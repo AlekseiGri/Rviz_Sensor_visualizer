@@ -9,13 +9,12 @@
   - `/sensor/pressure` (std_msgs/Float32)
 - Узел-визуализатор (`rviz_marker_publisher`) принимает значения из топиков и отображает значения в RViz как текст
 - Поддержка запуска через launch-файл
-- RViz-конфиг для быстрого старта
 
 ## 🚀 Установка
 
 ```bash
 cd ~/catkin_ws/src
-git clone https://github.com/yourusername/ros_sensor_visualizer.git
+git clone https://github.com/AlekseiGri/Rviz_Sensor_visualizer.git
 cd ..
 catkin_make
 source ./devel/setup.bash
