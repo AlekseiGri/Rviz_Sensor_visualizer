@@ -1,4 +1,5 @@
 <launch>
+  <rosparam file="$(find sensor_visualizer_cpp)/config/sensor_params.yaml" cammand="load"/>
   <node name="sensor_publisher" pkg="sensor_visualizer_cpp" type="sensor_publisher" output="screen"/>
   <node name="rviz_marker_publisher" pkg="sensor_visualizer_cpp" type="rviz_marker_publisher" output="screen"/>
 </launch>
