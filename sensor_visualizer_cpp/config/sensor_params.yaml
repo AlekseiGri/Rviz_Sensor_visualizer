@@ -1,0 +1,8 @@
+#установка температуры мин и макс
+temperature_min: 20
+temperature_max: 30
+#установка давления мин и макс
+pressure_min: 650
+pressure_max: 800
+#частота обновления подачи данных
+publish_rate: 1
