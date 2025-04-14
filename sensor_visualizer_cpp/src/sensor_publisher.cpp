@@ -18,11 +18,19 @@ int main(int argc, char **argv)
 
     ros::Publisher tem_pub = n.advertise<std_msgs::Float32>("/sensor/temperature", 10);
     ros::Publisher pre_pub = n.advertise<std_msgs::Float32>("/sensor/pressure", 10);
+
+    int temp_min, temp_max, pres_min, pres_max, rate;
+
+    n.getParam("temperature_min", temp_min);
+    n.getParam("temperature_max", temp_max);
+    n.getParam("pressure_min", pres_min);
+    n.getParam("pressure_max", pres_max);
+    n.getParam("publish_rate", rate);
     
-    ros::Rate loop_rate(1);
+    ros::Rate loop_rate(rate);
 
     std::srand(std::time(nullptr));
-
+    
     int count = 0;
 
     while (ros::ok())
@@ -30,8 +38,8 @@ int main(int argc, char **argv)
         std_msgs::Float32 tem_msg;
         std_msgs::Float32 pre_msg;
 
-        tem_msg.data = getRandom(30, 40);
-        pre_msg.data = getRandom(641, 816);
+        tem_msg.data = getRandom(temp_min, temp_max);
+        pre_msg.data = getRandom(pres_min, pres_max);
         
         ROS_INFO("Count: %d / temperature: %.2f / pressure: %.2f", count, tem_msg.data, pre_msg.data);
 
