@@ -28,8 +28,10 @@ int main(int argc, char **argv)
     ros::Subscriber temp_sub = n.subscribe("/sensor/temperature", 10, tempCallback);
     ros::Subscriber pre_sub = n.subscribe("/sensor/pressure", 10, presCallback);
     ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("/visualization_marker",1);
-    
-    ros::Rate loop_rate(1);
+
+    int rate;
+    n.getParam("publish_rate", rate);
+    ros::Rate loop_rate(rate);
 
     while (ros::ok())
     {
